@@ -1,0 +1,14 @@
+Scrivi un programma per ciascun esercizio che:
+
+1) Stampa a video usando int21h, distanziate da uno spazio, le lettere puntate del tuo nome e cognome
+esempio: M. R.
+2) Stampa a video la stringa con il tuo nome, va a capo, e stampa la stringa con il tuo cognome.
+3) Trasferisce nella ram i caratteri del tuo nome
+3bis) Trasferisce nella ram i caratteri inseriti dall'utente
+4) Stampa a video, utilizzando la zona di memoria destinata al monitor, le iniziali maiuscole del tuo nome e cognome a colori.
+5) permette all'utente di inserire due numeri (minori di 5 ) e mostra a video il risulatato
+6) data la stringa "Campioni per la terza volta" la stampa al contrario
+7) disegna a video un quadrato colorato di 10 asterischi utilizzando il loop
+3ter) Come bis ma stampa a video i caratteri inseriti solo quando l'utente inserisce il carattere $.
+8) data la stringa "Sette notti gratis a Roma" la stampa togliendo gli spazi
+9) come 7 ma chiedendo all'utente la dimensione del quadrato e la posizione.

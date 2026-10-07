@@ -1,0 +1,105 @@
+soluzioni:
+1)
+    mov ah, 02h    ; funzione stampa carattere
+    mov dl, 'A'    ; carattere da stampare
+    int 21h
+    mov ah, 4Ch    ; terminare programma
+    int 21h
+2) 
+mov ah, 01h    ; funzione: leggi carattere
+int 21h
+mov bl, al     ; salva carattere in BL
+
+mov ah, 02h    ; funzione: scrivi carattere
+mov dl, bl     ; carica carattere da stampare
+int 21h
+3)     
+
+    mov al, num1
+    add al, num2
+    num1 DB 3
+    num2 DB 5
+
+4)
+    mov al, counter
+    sub al, 1
+    mov counter, al
+    counter DB 10
+5)
+    mov dx, offset msg
+    mov ah, 09h
+    int 21h
+    msg DB "Benvenuto!$"
+6)
+    mov cx, 20      ; numero di ripetizioni
+print_loop:
+    mov ah, 02h
+    mov dl, '*'
+    int 21h
+    loop print_loop
+7)
+    mov ah, 01h
+    int 21h         ; leggere carattere
+    cmp al, 'y'
+    jne not_yes
+    mov dx, offset yes_msg
+    mov ah, 09h
+    int 21h
+    jmp fine
+not_yes:
+    mov dx, offset no_msg
+    mov ah, 09h
+    int 21h
+fine:
+    mov ah, 4Ch
+    int 21h
+    yes_msg DB "yes$"
+    no_msg DB "no$"
+8)     
+    mov cx, 10      ; contatore
+    xor ax, ax      ; somma = 0
+    mov bl, 1       ; numero da aggiungere
+sum_loop:
+    add ax, bx
+    inc bl
+    loop sum_loop
+
+9) 
+ mov cx, 5
+    lea si, buffer
+read_loop:
+    mov ah, 01h
+    int 21h
+    mov [si], al
+    inc si
+    loop read_loop
+    ; stampare
+    lea si, buffer
+    mov cx, 5
+print_loop:
+    mov dl, [si]
+    mov ah, 02h
+    int 21h
+    inc si
+    loop print_loop
+    buffer DB 5 DUP(?)
+10)
+    lea si, text
+find_end:
+    cmp byte ptr [si], '$'
+    je start_reverse
+    inc si
+    jmp find_end
+start_reverse:
+    dec si          ; posizione ultimo carattere valido
+reverse_loop:
+    cmp si, offset text - 1
+    je fine
+    mov dl, [si]
+    mov ah, 02h
+    int 21h
+    dec si
+    jmp reverse_loop
+fine:
+    ret
+text DB "CIAO MONDO$",0

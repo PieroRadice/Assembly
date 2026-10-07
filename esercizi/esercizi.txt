@@ -1,0 +1,75 @@
+1. Visualizzare un carattere fisso
+
+Obiettivo: usare mov + int 21h/02h.
+Richiesta: stampa il carattere "A" sullo schermo.
+
+Suggerimento:
+Caricare 02h in AH
+Mettere il carattere in DL
+Chiamare INT 21h
+
+2. Leggere un carattere e ristamparlo
+
+Obiettivo: usare int 21h/01h per input + int 21h/02h per output.
+Richiesta: il programma deve leggere un carattere da tastiera e stamparlo subito dopo.
+
+3. Sommare due numeri piccoli in memoria
+
+num1 DB 3
+num2 DB 5
+
+Obiettivo: usare DB, MOV, ADD.
+Richiesta:
+Definisci in memoria: counter DB 10
+Carica il valore in AL
+Sottrai 1
+Risalva il risultato in counter.
+
+5. Stampare una stringa con int 21h/09h
+
+Obiettivo: uso delle stringhe con terminatore $.
+Richiesta: definisci una stringa:msg DB "Benvenuto!$"
+E stampala con interrupt 21h funzione 09h.
+
+6. Usare LOOP per stampare un carattere N volte
+
+Obiettivo: uso di LOOP e MOV CX.
+Richiesta:
+Stampa il carattere "*" per 20 volte usando un loop basato su CX.
+
+7. Confronto e salto condizionato (JNE)
+
+Obiettivo: esercitarsi con CMP + JNE.
+Richiesta:
+Leggi un carattere da tastiera
+Se è diverso da "y", stampare "no"
+Se è "y", stampare "yes"
+
+8. Somma cumulativa con ciclo
+
+Obiettivo: usare ADD, INC, LOOP.
+Richiesta:
+Calcola la somma dei numeri da 1 a 10 usando un ciclo: 1 + 2 + 3 + ... + 10
+Il risultato va in AX.
+
+9. Leggere e memorizzare 5 caratteri in un array (DB)
+
+Obiettivo: manipolazione di array e indirizzamento.
+Richiesta:
+
+Definisci un buffer di 5 byte: buffer DB 5 DUP(?)
+Leggi 5 caratteri usando int 21h/01h, memorizzandoli nel buffer
+Poi stampali tutti con 02h usando un ciclo
+
+10. Stampare una stringa al contrario
+
+Obiettivo: stringhe, cicli, indirizzamento, DEC, JNE.
+Richiesta:
+Data questa stringa: text DB "CIAO MONDO$",0
+
+Stampa i caratteri dalla fine all’inizio, escludendo $.
+Suggerimenti:
+Trovare la lunghezza
+Posizionare SI sull’ultimo carattere valido
+Scendere verso l'inizio
+Stampare via INT 21h/02h
